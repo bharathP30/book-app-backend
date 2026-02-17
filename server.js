@@ -9,7 +9,12 @@ import { Authenticate } from "./middleware/auth.js";
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin: [
+        "http://localhost:5173",                        // Local dev
+        "https://book-app-frontend-ecru.vercel.app"    // Your Vercel URL
+    ]
+}));
 app.use(express.json());
 
     async function main() {
